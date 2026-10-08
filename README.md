@@ -128,7 +128,7 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 
 ## AI-Assisted Research
 
-報告中已明確標示 **GPT 輔助內容** 與 **NotebookLM 摘要**，並說明模型數字皆由程式實際執行產生。GPT 對話摘要 PDF 也已放入繳交壓縮檔。
+`5115056030_完整報告.pdf` 已包含 **GPT 輔助內容** 與 **NotebookLM 摘要**，並說明模型數字皆由程式實際執行產生；ZIP 不再重複放置獨立 GPT 對話 PDF。
 
 ## Limitations
 
