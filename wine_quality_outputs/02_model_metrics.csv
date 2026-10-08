@@ -1,0 +1,4 @@
+﻿Model,Features,N_features,MAE,MSE,RMSE,R2
+B_Multiple_all11,"fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chlorides, free_sulfur_dioxide, total_sulfur_dioxide, density, pH, sulphates, alcohol",11,0.47733983525886037,0.38003245026277593,0.616467720373724,0.3170693672733116
+C_Selected_top5,"volatile_acidity, citric_acid, density, sulphates, alcohol",5,0.4833851026587569,0.38559032242456315,0.6209591954585769,0.3070816908276848
+A_Simple_alcohol,alcohol,1,0.5265421044902157,0.41754739779777417,0.6461790756421738,0.24965379042173041
