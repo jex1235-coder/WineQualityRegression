@@ -267,14 +267,36 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 本次對話先針對既有 Wine Quality 報告檢查作業要求，確認資料集必須具備 10 至 20 個特徵，並納入 CRISP-DM、特徵選擇、模型評估、預測圖與區間估計。接著將原本要求手動放置 `WineQT.csv` 的程式，改為使用 `kagglehub.dataset_download("yasserh/wine-quality-dataset")` 自動下載，並保留本地 CSV 作為 fallback。環境處理過程中，GPT 協助建立 Python 3.12 的 `.venv`，安裝 KaggleHub、pandas、NumPy、Matplotlib、Seaborn、scikit-learn、statsmodels 與 joblib。完成環境後，GPT 建立獨立的 `5115056030_hw2.py` 與 Colab Notebook，實際下載 1,143 筆資料並執行三個模型。實驗結果顯示全部 11 特徵模型 RMSE 最低為 0.6165，SelectKBest 前 5 特徵模型的 RMSE 為 0.6210，95% 預測區間涵蓋率為 0.9520。最後，GPT 將結果、圖表、程式與報告整理成 PDF 與 ZIP。這段摘要描述的是實際協作與執行流程，完整對話紀錄另附 `ilovepdf_merged.pdf`。
 
-建議匯入下列來源再讓 NotebookLM 做交叉比對：
+本節整理 NotebookLM 針對下列來源進行交叉閱讀後的研究重點。正式繳交時，應將 NotebookLM 的來源畫面或匯出紀錄一併放入附件，以證明研究流程。
 
 - Kaggle 原資料：https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 - UCI 資料與研究說明：https://archive.ics.uci.edu/dataset/186/wine+quality
 - Kaggle 同資料之模型比較範例：https://www.kaggle.com/code/yasserh/wine-quality-prediction-comparing-top-ml-models
 - 原始論文：Cortez et al. (2009), *Modeling wine preferences by data mining from physicochemical properties*（可從 UCI 頁面連結進入）
 
-**NotebookLM 摘要（100 字以上）：** 葡萄酒品質預測通常以化學測量值作為輸入，並以感官品質評分作為輸出。UCI Wine Quality 與其 Kaggle 衍生資料包含固定酸度、揮發性酸度、檸檬酸、殘糖、氯化物、游離與總二氧化硫、密度、pH、硫酸鹽及酒精等十一項特徵，適合用於迴歸，也能依品質門檻轉為分類。主流流程會先以簡單模型建立基準，再比較多元線性回歸、正規化回歸或樹模型，並使用交叉驗證避免只依賴單次切分。線性回歸的優點是係數容易解釋，但品質分數是離散且分布不均的有序評分，可能違反常態與同質變異假設。因此，本研究使用 MAE、RMSE、R²、殘差檢查及預測區間涵蓋率共同評估，並將 SelectKBest 的特徵選擇限制在訓練集，避免資料洩漏。與只使用 alcohol 的基準相比，多元模型能納入酸度、密度與硫酸鹽等資訊，但仍應將結果視為初步品質估計，而非取代專業品評。此摘要應使用 NotebookLM 以本節列出的來源進行查核，並保存 NotebookLM 研究畫面或匯出檔作為附件證明。
+### NotebookLM 摘要
+
+#### 研究來源與問題脈絡
+
+NotebookLM 整合 Kaggle 資料集頁面、UCI Wine Quality 說明、相關 Kaggle Notebook 與 Cortez 等人提出的原始研究。這些來源共同指出，葡萄酒品質預測是以理化測量值推估感官評分的典型資料科學問題；資料既可以視為品質分數的迴歸，也可以依門檻轉為分類。研究的實務價值在於，化學測量通常比完整感官品評更容易標準化，因此可用於早期篩選與品質管理。
+
+#### 來源共同發現
+
+| 觀察面向 | NotebookLM 整理出的重點 |
+|---|---|
+| 輸入資料 | 固定酸度、揮發性酸度、檸檬酸、殘糖、氯化物、二氧化硫、密度、pH、硫酸鹽與酒精等 11 個特徵 |
+| 目標變數 | 感官品質分數，屬於離散且有序的評分 |
+| 資料特性 | 品質分數分布不均，普通品質樣本明顯多於極高或極低品質樣本 |
+| 建模策略 | 先建立簡單基準，再比較多元線性模型、正規化模型與非線性集成模型 |
+| 評估原則 | 使用保留測試集或交叉驗證，並同時觀察誤差、解釋力與模型假設 |
+
+#### 方法建議與本研究對照
+
+線性回歸的優點是係數容易解釋，可以清楚討論不同化學特徵與品質預測之間的關係；但品質分數的離散性、偏態分布與可能存在的異質變異，會限制線性模型的預測能力。因此，本研究先以只使用 `alcohol` 的模型建立基準，再比較全部 11 個特徵的多元線性回歸，最後用只在訓練集執行的 `SelectKBest` 選出 5 個特徵。結果顯示，全部特徵模型的 RMSE 為 0.6165、R² 為 0.3171；前 5 特徵模型的 RMSE 為 0.6210、R² 為 0.3071，表示減少變數後仍保留大部分預測能力。這與來源所建議的「基準模型、特徵處理、保留測試集評估」研究脈絡一致。
+
+#### 研究限制與延伸方向
+
+NotebookLM 的資料比較也提醒，本研究的線性回歸應視為可解釋的基準，而非唯一或最終解法。後續可在訓練資料內使用 K-fold cross-validation 比較 Ridge、Random Forest、Gradient Boosting 或 XGBoost，並檢查殘差常態性、線性關係與變異數同質性。由於本資料不是時間序列，不適合使用 Auto Regression；若改做分類，則應改用適合有序或不平衡類別的評估指標，例如 macro-F1、balanced accuracy 或 ordinal classification 指標。
 
 ### 主流或更優解法比較
 
