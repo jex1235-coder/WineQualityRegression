@@ -6,6 +6,7 @@
 
 - Kaggle：https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 - 原始來源 UCI：https://archive.ics.uci.edu/dataset/186/wine+quality
+- **Kaggle 名次：不適用（N/A）。** 此連結是 Kaggle Dataset 資料集頁面，不是 Kaggle Competition 競賽頁面，因此沒有官方排行榜、參賽隊伍或提交分數名次。Kaggle 頁面上的 views、downloads、Usability 分數及 Related Notebooks 的獎章，均不是本研究模型的競賽名次。
 - Kaggle 下載檔案通常為 `WineQT.csv`，有 11 個理化輸入特徵、1 個輸出 `quality`，另可能有 `Id` 識別碼。`Id` 不可作為預測特徵。
 - **符合 10 至 20 個 features 要求：11 個。** 注意：特徵選擇後的模型可以只使用部分特徵；資料集原始特徵數仍為 11。
 - 品質分數 `quality` 為離散、有序分數，仍可作為線性回歸的數值目標，但預測可能超出實際分數範圍；報告須交代此限制。
@@ -278,6 +279,18 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 ### 主流或更優解法比較
 
 Kaggle 上常見的比較會加入 Random Forest、Gradient Boosting、XGBoost 或其他集成模型。這些非線性模型可能捕捉特徵交互作用，預測準確度通常有機會高於線性回歸，但可解釋性與預測區間呈現較複雜。本作業選擇線性回歸作為透明基準，並以 SelectKBest 降低變數數量；若要延伸，可在訓練資料內使用 K-fold cross-validation 比較 Ridge、Random Forest 與 Gradient Boosting，再以獨立測試集做最後評估。
+
+### Kaggle 名次與本研究結果
+
+| 項目 | 結果 |
+|---|---|
+| Kaggle Competition 名次 | N/A：資料集頁面沒有競賽排行榜 |
+| Kaggle Dataset 頁面 | Wine Quality Dataset（Yasser H.） |
+| 本研究最佳模型 | 全部 11 特徵 Multiple Linear Regression |
+| 本研究測試集 RMSE | 0.6165 |
+| 本研究測試集 R² | 0.3171 |
+
+因此，本作業以測試集評估指標作為模型成果，而不虛構不存在的 Kaggle 排名。若老師要求必須呈現競賽名次，應改用具有 `leaderboard` 與 `Submit to Competition` 的 Kaggle Competition 資料集；本資料集則可在報告中以「Kaggle 名次不適用」完整交代。
 
 ## 八、繳交檢查清單
 
