@@ -237,18 +237,6 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 **避免誤解：** `03_prediction_interval.png` 需下載 CSV 執行後才會生成；此份 Markdown 本身沒有宣稱已實際完成模型測試。程式使用 OLS 殘差估計傳統、模型假設成立下的參數式預測區間；區間涵蓋率仍需實際驗證。
 
-## 繳交檢查清單
-
-- [x] 指定 Kaggle 公開資料集與原始來源
-- [x] 11 個 features 的確認與欄位解釋
-- [x] CRISP-DM 六階段
-- [x] 特徵選擇、三種回歸模型、評估方案與完整繪圖程式
-- [x] 使用 KaggleHub 實際下載 `WineQT.csv` 並執行
-- [x] 將 `02_model_metrics.csv` 的真實指標填回第六節
-- [x] 產生 `03_prediction_interval.png` 與其他圖表
-- [x] 建立可在 Google Colab 執行的 `5115056030_hw2.py`
-- [ ] 如老師要求，實際使用 NotebookLM 研究並保存來源／引用截圖
-
 ## 參考資料
 
 1. Kaggle, Wine Quality Dataset. https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
