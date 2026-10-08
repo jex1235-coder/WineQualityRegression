@@ -80,6 +80,18 @@
 
 ![Actual versus predicted](wine_quality_outputs/04_actual_vs_predicted.png)
 
+### Model Comparison
+
+![Comparison of three regression models](wine_quality_outputs/06_model_comparison.png)
+
+### RMSE by Number of Features
+
+![RMSE by number of features](wine_quality_outputs/07_rmse_by_features.png)
+
+### R-squared by Number of Features
+
+![R-squared by number of features](wine_quality_outputs/08_r2_by_features.png)
+
 ## Reproducibility
 
 ### Google Colab
