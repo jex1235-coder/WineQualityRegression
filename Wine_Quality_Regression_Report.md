@@ -257,9 +257,11 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 ![實際值與預測值](wine_quality_outputs/04_actual_vs_predicted.png)
 
-## 七、GPT 輔助內容與 NotebookLM 摘要
+<!-- PAGEBREAK -->
 
-### GPT 輔助內容
+## 七、AI 輔助研究
+
+### **GPT 輔助內容**
 
 本報告使用 GPT 協助整理 CRISP-DM 架構、設計三組線性回歸比較、撰寫 KaggleHub 可重現下載程式、規劃 SelectKBest 特徵選擇，以及建立 OLS 95% 預測區間。所有模型指標與圖表均由 `5115056030_hw2.py` 實際執行產生；GPT 未直接捏造實驗數字。GPT 對話紀錄應另以 pdfCrowd 或瀏覽器列印功能匯出 PDF，並與本報告一併繳交。
 
@@ -267,14 +269,16 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 本次對話先針對既有 Wine Quality 報告檢查作業要求，確認資料集必須具備 10 至 20 個特徵，並納入 CRISP-DM、特徵選擇、模型評估、預測圖與區間估計。接著將原本要求手動放置 `WineQT.csv` 的程式，改為使用 `kagglehub.dataset_download("yasserh/wine-quality-dataset")` 自動下載，並保留本地 CSV 作為 fallback。環境處理過程中，GPT 協助建立 Python 3.12 的 `.venv`，安裝 KaggleHub、pandas、NumPy、Matplotlib、Seaborn、scikit-learn、statsmodels 與 joblib。完成環境後，GPT 建立獨立的 `5115056030_hw2.py` 與 Colab Notebook，實際下載 1,143 筆資料並執行三個模型。實驗結果顯示全部 11 特徵模型 RMSE 最低為 0.6165，SelectKBest 前 5 特徵模型的 RMSE 為 0.6210，95% 預測區間涵蓋率為 0.9520。最後，GPT 將結果、圖表、程式與報告整理成 PDF 與 ZIP。這段摘要描述的是實際協作與執行流程，完整對話紀錄另附 `ilovepdf_merged.pdf`。
 
+<!-- PAGEBREAK -->
+
+### **NotebookLM 摘要**
+
 本節整理 NotebookLM 針對下列來源進行交叉閱讀後的研究重點。正式繳交時，應將 NotebookLM 的來源畫面或匯出紀錄一併放入附件，以證明研究流程。
 
 - Kaggle 原資料：https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
 - UCI 資料與研究說明：https://archive.ics.uci.edu/dataset/186/wine+quality
 - Kaggle 同資料之模型比較範例：https://www.kaggle.com/code/yasserh/wine-quality-prediction-comparing-top-ml-models
 - 原始論文：Cortez et al. (2009), *Modeling wine preferences by data mining from physicochemical properties*（可從 UCI 頁面連結進入）
-
-### NotebookLM 摘要
 
 #### 研究來源與問題脈絡
 
