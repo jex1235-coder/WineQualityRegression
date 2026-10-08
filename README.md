@@ -84,35 +84,35 @@
 
 ### Google Colab
 
-上傳 `7114056XXX_hw2.py` 或 `7114056XXX_hw2.ipynb` 後執行：
+上傳 `5115056030_hw2.py` 或 `5115056030_hw2.ipynb` 後執行：
 
 ```python
 !pip install -r requirements.txt
-!python 7114056XXX_hw2.py
+!python 5115056030_hw2.py
 ```
 
-程式會自動從 KaggleHub 下載資料，並將結果寫入 `wine_quality_outputs/`。也可以直接開啟 [7114056XXX_hw2.ipynb](7114056XXX_hw2.ipynb) 逐 cell 執行。
+程式會自動從 KaggleHub 下載資料，並將結果寫入 `wine_quality_outputs/`。也可以直接開啟 [5115056030_hw2.ipynb](5115056030_hw2.ipynb) 逐 cell 執行。
 
 ### Local Python 3.12
 
 ```powershell
 uv venv .venv --python 3.12
 uv pip install --python .venv\Scripts\python.exe -r requirements.txt
-.venv\Scripts\python.exe 7114056XXX_hw2.py
+.venv\Scripts\python.exe 5115056030_hw2.py
 ```
 
 ## Output Files
 
 | 檔案 | 用途 |
 |---|---|
-| [7114056XXX_hw2.py](7114056XXX_hw2.py) | 完整分析主程式 |
-| [7114056XXX_hw2.ipynb](7114056XXX_hw2.ipynb) | Colab/Jupyter Notebook |
+| [5115056030_hw2.py](5115056030_hw2.py) | 完整分析主程式 |
+| [5115056030_hw2.ipynb](5115056030_hw2.ipynb) | Colab/Jupyter Notebook |
 | [Wine_Quality_Regression_Report.pdf](Wine_Quality_Regression_Report.pdf) | 正式 PDF 報告 |
 | `02_model_metrics.csv` | 模型評估指標 |
 | `03_prediction_interval.png` | 預測值與 95% 預測區間 |
 | `04_actual_vs_predicted.png` | 實際值與預測值圖 |
 | `*.joblib` | 訓練完成的模型 Pipeline |
-| [7114056XXX_hw2.zip](7114056XXX_hw2.zip) | 完整繳交壓縮檔 |
+| [5115056030_hw2.zip](5115056030_hw2.zip) | 完整繳交壓縮檔 |
 
 ## AI-Assisted Research
 

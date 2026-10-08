@@ -2,7 +2,7 @@
 
 Colab setup:
     !pip install kagglehub pandas numpy matplotlib seaborn scikit-learn statsmodels joblib
-    !python 7114056XXX_hw2.py
+    !python 5115056030_hw2.py
 """
 
 from pathlib import Path

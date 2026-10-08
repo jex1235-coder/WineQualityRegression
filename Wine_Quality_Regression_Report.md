@@ -72,7 +72,7 @@ UCI 提供紅、白葡萄酒原始資料集（紅酒 1599 筆、白酒 4898 筆�
 
 ## 五、實作流程與完整 Python 程式
 
-環境（本機或 Google Colab）：`pip install pandas numpy matplotlib seaborn scikit-learn statsmodels joblib kagglehub`。程式會使用 `kagglehub` 自動下載指定 Kaggle 資料集；若執行目錄已有 `WineQT.csv`，則優先使用本地檔案。獨立可執行版本為 `7114056XXX_hw2.py`，可在 Colab 上先執行安裝指令，再上傳並執行該檔案。
+環境（本機或 Google Colab）：`pip install pandas numpy matplotlib seaborn scikit-learn statsmodels joblib kagglehub`。程式會使用 `kagglehub` 自動下載指定 Kaggle 資料集；若執行目錄已有 `WineQT.csv`，則優先使用本地檔案。獨立可執行版本為 `5115056030_hw2.py`，可在 Colab 上先執行安裝指令，再上傳並執行該檔案。
 
 ```python
 from pathlib import Path
@@ -261,11 +261,11 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 ### GPT 輔助內容
 
-本報告使用 GPT 協助整理 CRISP-DM 架構、設計三組線性回歸比較、撰寫 KaggleHub 可重現下載程式、規劃 SelectKBest 特徵選擇，以及建立 OLS 95% 預測區間。所有模型指標與圖表均由 `7114056XXX_hw2.py` 實際執行產生；GPT 未直接捏造實驗數字。GPT 對話紀錄應另以 pdfCrowd 或瀏覽器列印功能匯出 PDF，並與本報告一併繳交。
+本報告使用 GPT 協助整理 CRISP-DM 架構、設計三組線性回歸比較、撰寫 KaggleHub 可重現下載程式、規劃 SelectKBest 特徵選擇，以及建立 OLS 95% 預測區間。所有模型指標與圖表均由 `5115056030_hw2.py` 實際執行產生；GPT 未直接捏造實驗數字。GPT 對話紀錄應另以 pdfCrowd 或瀏覽器列印功能匯出 PDF，並與本報告一併繳交。
 
 ### GPT 對話摘要
 
-本次對話先針對既有 Wine Quality 報告檢查作業要求，確認資料集必須具備 10 至 20 個特徵，並納入 CRISP-DM、特徵選擇、模型評估、預測圖與區間估計。接著將原本要求手動放置 `WineQT.csv` 的程式，改為使用 `kagglehub.dataset_download("yasserh/wine-quality-dataset")` 自動下載，並保留本地 CSV 作為 fallback。環境處理過程中，GPT 協助建立 Python 3.12 的 `.venv`，安裝 KaggleHub、pandas、NumPy、Matplotlib、Seaborn、scikit-learn、statsmodels 與 joblib。完成環境後，GPT 建立獨立的 `7114056XXX_hw2.py` 與 Colab Notebook，實際下載 1,143 筆資料並執行三個模型。實驗結果顯示全部 11 特徵模型 RMSE 最低為 0.6165，SelectKBest 前 5 特徵模型的 RMSE 為 0.6210，95% 預測區間涵蓋率為 0.9520。最後，GPT 將結果、圖表、程式與報告整理成 PDF 與 ZIP。這段摘要描述的是實際協作與執行流程，完整對話紀錄另附 `ilovepdf_merged.pdf`。
+本次對話先針對既有 Wine Quality 報告檢查作業要求，確認資料集必須具備 10 至 20 個特徵，並納入 CRISP-DM、特徵選擇、模型評估、預測圖與區間估計。接著將原本要求手動放置 `WineQT.csv` 的程式，改為使用 `kagglehub.dataset_download("yasserh/wine-quality-dataset")` 自動下載，並保留本地 CSV 作為 fallback。環境處理過程中，GPT 協助建立 Python 3.12 的 `.venv`，安裝 KaggleHub、pandas、NumPy、Matplotlib、Seaborn、scikit-learn、statsmodels 與 joblib。完成環境後，GPT 建立獨立的 `5115056030_hw2.py` 與 Colab Notebook，實際下載 1,143 筆資料並執行三個模型。實驗結果顯示全部 11 特徵模型 RMSE 最低為 0.6165，SelectKBest 前 5 特徵模型的 RMSE 為 0.6210，95% 預測區間涵蓋率為 0.9520。最後，GPT 將結果、圖表、程式與報告整理成 PDF 與 ZIP。這段摘要描述的是實際協作與執行流程，完整對話紀錄另附 `ilovepdf_merged.pdf`。
 
 建議匯入下列來源再讓 NotebookLM 做交叉比對：
 
@@ -301,7 +301,7 @@ Kaggle 上常見的比較會加入 Random Forest、Gradient Boosting、XGBoost �
 - [x] 使用 KaggleHub 實際下載 `WineQT.csv` 並執行
 - [x] 將 `02_model_metrics.csv` 的真實指標填回第六節
 - [x] 產生 `03_prediction_interval.png` 與其他圖表
-- [x] 建立可在 Google Colab 執行的 `7114056XXX_hw2.py`
+- [x] 建立可在 Google Colab 執行的 `5115056030_hw2.py`
 - [ ] 如老師要求，實際使用 NotebookLM 研究並保存來源／引用截圖
 
 ## 參考資料
