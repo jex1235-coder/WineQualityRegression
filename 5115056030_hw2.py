@@ -117,6 +117,53 @@ def main() -> None:
     print("\nModel metrics:\n", metrics.to_string(index=False))
     metrics.to_csv(OUTPUT_DIR / "02_model_metrics.csv", index=False, encoding="utf-8-sig")
 
+    # Compare every model on the same held-out observations.
+    comparison_order = np.argsort(y_test.to_numpy())
+    plt.figure(figsize=(12, 6))
+    plt.scatter(
+        np.arange(len(y_test)), y_test.to_numpy()[comparison_order],
+        color="black", s=16, alpha=0.55, label="Actual quality",
+    )
+    colors = {"A_Simple_alcohol": "#2563eb", "B_Multiple_all11": "#dc2626", "C_Selected_top5": "#059669"}
+    labels = {
+        "A_Simple_alcohol": "Simple alcohol",
+        "B_Multiple_all11": "Multiple all 11",
+        "C_Selected_top5": "SelectKBest top 5",
+    }
+    for name, prediction in predictions.items():
+        plt.plot(
+            np.arange(len(y_test)), prediction[comparison_order],
+            linewidth=1.4, color=colors[name], label=labels[name],
+        )
+    plt.xlabel("Test samples (sorted by actual quality)")
+    plt.ylabel("Quality score")
+    plt.title("Comparison of Linear Regression Models")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "06_model_comparison.png", dpi=200)
+    plt.close()
+
+    chart_metrics = metrics.sort_values("N_features")
+    plt.figure(figsize=(7, 5))
+    plt.plot(chart_metrics["N_features"], chart_metrics["RMSE"], marker="o", linewidth=2)
+    plt.xticks(chart_metrics["N_features"])
+    plt.xlabel("Number of features")
+    plt.ylabel("RMSE")
+    plt.title("RMSE by Number of Features")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "07_rmse_by_features.png", dpi=200)
+    plt.close()
+
+    plt.figure(figsize=(7, 5))
+    plt.plot(chart_metrics["N_features"], chart_metrics["R2"], marker="o", linewidth=2)
+    plt.xticks(chart_metrics["N_features"])
+    plt.xlabel("Number of features")
+    plt.ylabel("R-squared")
+    plt.title("R-squared by Number of Features")
+    plt.tight_layout()
+    plt.savefig(OUTPUT_DIR / "08_r2_by_features.png", dpi=200)
+    plt.close()
+
     selected_pipe = models["C_Selected_top5"][1]
     selector = selected_pipe.named_steps["select"]
     selected_names = X_train.columns[selector.get_support()].tolist()

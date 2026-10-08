@@ -237,6 +237,26 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 
 **避免誤解：** `03_prediction_interval.png` 需下載 CSV 執行後才會生成；此份 Markdown 本身沒有宣稱已實際完成模型測試。程式使用 OLS 殘差估計傳統、模型假設成立下的參數式預測區間；區間涵蓋率仍需實際驗證。
 
+## 視覺化結果
+
+以下圖表均由 `5115056030_hw2.py` 使用本次 Wine Quality 測試集實際產生。附件中的 Profit/R&D Spend 圖屬於不同資料集，因此不納入本報告。
+
+### 原始分析圖
+
+![特徵相關係數熱圖](wine_quality_outputs/01_correlation_heatmap.png)
+
+![模型 C 的 95% 預測區間](wine_quality_outputs/03_prediction_interval.png)
+
+![實際值與預測值](wine_quality_outputs/04_actual_vs_predicted.png)
+
+### 模型比較圖
+
+![三種回歸模型比較](wine_quality_outputs/06_model_comparison.png)
+
+![RMSE 與特徵數](wine_quality_outputs/07_rmse_by_features.png)
+
+![R² 與特徵數](wine_quality_outputs/08_r2_by_features.png)
+
 ## 參考資料
 
 1. Kaggle, Wine Quality Dataset. https://www.kaggle.com/datasets/yasserh/wine-quality-dataset
