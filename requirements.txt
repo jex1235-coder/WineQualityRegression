@@ -6,3 +6,5 @@ seaborn
 scikit-learn
 statsmodels
 joblib
+reportlab
+pypdf

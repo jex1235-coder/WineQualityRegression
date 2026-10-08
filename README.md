@@ -119,6 +119,7 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 |---|---|
 | [5115056030_hw2.py](5115056030_hw2.py) | 完整分析主程式 |
 | [5115056030_hw2.ipynb](5115056030_hw2.ipynb) | Colab/Jupyter Notebook |
+| [build_report_pdf.py](build_report_pdf.py) | 報告 PDF 產生程式 |
 | [5115056030_完整報告.pdf](5115056030_完整報告.pdf) | 正式報告與美化對話摘要合併版 |
 | `02_model_metrics.csv` | 模型評估指標 |
 | `03_prediction_interval.png` | 預測值與 95% 預測區間 |

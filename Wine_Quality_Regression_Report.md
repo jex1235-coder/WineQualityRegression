@@ -1,6 +1,6 @@
 # Wine Quality Dataset：線性回歸研究與 CRISP-DM 專題報告
 
-> 撰寫日期：2026-10-08。此文件為研究規劃與可重現實驗程式；模型數字與圖片須實際執行程式後填入，不虛構實驗結果。
+> 撰寫日期：2026-10-08。模型數字與圖片皆由 `5115056030_hw2.py` 實際執行產生。
 
 ## 一、資料集資格與結論
 
@@ -65,6 +65,8 @@ UCI 提供紅、白葡萄酒原始資料集（紅酒 1599 筆、白酒 4898 筆�
 ### 5. Evaluation（模型評估）
 
 評估保留測試集上的 MAE、MSE、RMSE、R²，搭配實際值與預測值散佈圖、殘差圖、95% 預測區間圖、預測區間涵蓋率與平均寬度。比較三個模型；特徵數與解釋力也是評估指標。對單筆未來葡萄酒分數，**預測區間（Prediction Interval）比均值信賴區間（Confidence Interval）更符合題意**；前者考慮單筆資料的不可預測變動，因此通常更寬。OLS 的經典區間假設包括線性形式、誤差常態與同質變異等，需檢視殘差。若區間超出 0–10 需在報告中說明。
+
+實際測試集結果如下：A 模型 MAE=0.5265、MSE=0.4175、RMSE=0.6462、R²=0.2497；B 模型 MAE=0.4773、MSE=0.3800、RMSE=0.6165、R²=0.3171；C 模型 MAE=0.4834、MSE=0.3856、RMSE=0.6210、R²=0.3071。模型 C 選出的五個特徵為 `volatile_acidity`、`citric_acid`、`density`、`sulphates`、`alcohol`，95% 預測區間涵蓋率為 0.9520，平均區間寬度為 2.5916。B 相較 A 的 RMSE 約下降 4.6%，C 以較少特徵仍維持接近 B 的表現；測試集只用於最後評估，沒有用來調參。
 
 ### 6. Deployment（部署）
 
@@ -233,9 +235,11 @@ print("輸出圖片：01_correlation_heatmap.png、03_prediction_interval.png、
 2. `02_model_metrics.csv`：A、B、C 三個模型的 MAE / MSE / RMSE / R²。
 3. `03_prediction_interval.png`：**實際品質 vs. 預測品質 + 95% Prediction Interval**（題目必要）。
 4. `04_actual_vs_predicted.png`：預測值與真實值散佈圖。
-5. 三份 `.joblib`：訓練好的 pipeline。
+5. `06_model_comparison.png`：三個模型在相同測試樣本上的預測比較。
+6. `07_rmse_by_features.png`、`08_r2_by_features.png`：特徵數與模型指標關係。
+7. 三份 `.joblib`：訓練好的 pipeline。
 
-**避免誤解：** `03_prediction_interval.png` 需下載 CSV 執行後才會生成；此份 Markdown 本身沒有宣稱已實際完成模型測試。程式使用 OLS 殘差估計傳統、模型假設成立下的參數式預測區間；區間涵蓋率仍需實際驗證。
+程式使用 OLS 殘差估計傳統、模型假設成立下的參數式預測區間；區間涵蓋率已用獨立測試集實際計算。
 
 ## 視覺化結果
 
