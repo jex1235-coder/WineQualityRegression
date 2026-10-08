@@ -109,6 +109,7 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 | [5115056030_hw2.ipynb](5115056030_hw2.ipynb) | Colab/Jupyter Notebook |
 | [Wine_Quality_Regression_Report.pdf](Wine_Quality_Regression_Report.pdf) | 正式 PDF 報告 |
 | [對話摘要_美化版.pdf](對話摘要_美化版.pdf) | 對話摘要第六頁重新排版版 |
+| [5115056030_完整報告.pdf](5115056030_完整報告.pdf) | 正式報告與美化對話摘要合併版 |
 | `02_model_metrics.csv` | 模型評估指標 |
 | `03_prediction_interval.png` | 預測值與 95% 預測區間 |
 | `04_actual_vs_predicted.png` | 實際值與預測值圖 |
